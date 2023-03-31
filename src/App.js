@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import ScoreCard from './components/ScoreCard';
+import {Routes,Route} from 'react-router-dom';
+import Home from './components/Home';
+import Result from './components/Result';
+import PrivateRoute from './components/PrivateRoute';
+import { useState } from 'react';
 
 function App() {
+const [selected , setSelected] = useState("");
+const [score , setScore] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper flex flex-col justify-center items-center relative">
+      <ScoreCard score = {score}/>
+
+      <Routes>
+        <Route path="/" element={<Home setSelected={setSelected}/>}/>
+        <Route path="/result" element={
+          <PrivateRoute selected={selected}>
+            <Result selected={selected} score={score} setScore={setScore}/>
+          </PrivateRoute> }/>
+      </Routes>
+
+      <div className='w-full mt-[7rem] text-center md:text-right md:pr-[3rem]'>
+            <button className='px-[2rem] py-[0.4rem] rounded-md text-white uppercase font-[500]  tracking-wide border border-white'>
+                  Rules
+            </button>
+      </div>
     </div>
   );
 }
