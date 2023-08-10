@@ -49,10 +49,10 @@ const Result = ({ selected, score, setScore }) => {
         <div
           className={`rock-button bg-white rounded-full w-[100px] md:w-[180px] aspect-square  grid place-items-center border-[12px] md:border-[20px]  ${
             selected === "rock"
-              ? "border-red-500"
+              ? "border-red-500 shadow-[0px_7px_0px_0px_rgba(181,51,51,1)] md:shadow-[0px_10px_0px_0px_rgba(181,51,51,1)]"
               : selected === "paper"
-              ? "border-blue-500"
-              : "border-yellow-400"
+              ? "border-blue-500 shadow-[0px_7px_0px_0px_rgba(16,81,133,1)] md:shadow-[0px_10px_0px_0px_rgba(16,81,133,1)]"
+              : "border-yellow-400 shadow-[0px_7px_0px_0px_rgba(194,140,23,1)] md:shadow-[0px_10px_0px_0px_rgba(194,140,23,1)]"
           }`}
         >
           <img
@@ -101,10 +101,10 @@ const Result = ({ selected, score, setScore }) => {
         <div
           className={`rock-button bg-white rounded-full w-[100px] md:w-[180px] aspect-square  grid place-items-center border-[12px] md:border-[20px]  ${
             houseSelection === "rock"
-              ? "border-red-500 shadow-[0px_9px_0px_0px_rgba(181,51,51,1)]"
+              ? "border-red-500 shadow-[0px_7px_0px_0px_rgba(181,51,51,1)] md:shadow-[0px_10px_0px_0px_rgba(181,51,51,1)]"
               : houseSelection === "paper"
-              ? "border-blue-500 shadow-[0px_9px_0px_0px_rgba(16,81,133,1)]"
-              : "border-yellow-400 shadow-[0px_9px_0px_0px_rgba(194,140,23,1)]"
+              ? "border-blue-500 shadow-[0px_7px_0px_0px_rgba(16,81,133,1)] md:shadow-[0px_10px_0px_0px_rgba(16,81,133,1)]"
+              : "border-yellow-400 shadow-[0px_7px_0px_0px_rgba(194,140,23,1)] md:shadow-[0px_10px_0px_0px_rgba(194,140,23,1)]"
           }`}
         >
           <img
