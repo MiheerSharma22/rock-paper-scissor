@@ -24,4 +24,4 @@ Everyone knows, but here's a quick reminder:-
 
 ## Live Game
 
-<a href="https://master--rock-paper-scissor-mygame.netlify.app/">Play Game here</a>
+<a href="https://rock-paper-scissor-mygame.netlify.app/">Play Game here</a>
