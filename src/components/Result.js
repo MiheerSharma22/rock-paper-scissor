@@ -50,7 +50,9 @@ const Result = ({ selected, score, setScore }) => {
       <div className="flex flex-col justify-center items-center gap-5 order-first">
         <p className="text-white tracking-wider text-xl">You Picked</p>
         <div
-          className={`rock-button bg-[#fffffff0] rounded-full w-[100px] md:w-[180px] aspect-square  grid place-items-center border-[10px] md:border-[20px]  ${
+          className={`${
+            win === "won" ? "jss55" : ""
+          } bg-[#fffffff0] rounded-full w-[100px] md:w-[180px] aspect-square  grid place-items-center border-[10px] md:border-[20px]  ${
             selected === "rock"
               ? "border-[#DC2E4E] shadow-[0px_6px_0px_0px_rgba(184,33,60,1)] md:shadow-[0px_10px_0px_0px_rgba(184,33,60,1)]"
               : selected === "paper"
@@ -111,7 +113,9 @@ const Result = ({ selected, score, setScore }) => {
           // if houseSelection is not blank then show its selection else show a black placeholder
           houseSelection !== "" ? (
             <div
-              className={`rock-button bg-[#fffffff0] rounded-full w-[100px] md:w-[180px] aspect-square  grid place-items-center border-[10px] md:border-[20px]  ${
+              className={`${
+                win === "lost" ? "jss55" : ""
+              } bg-[#fffffff0] rounded-full w-[100px] md:w-[180px] aspect-square  grid place-items-center border-[10px] md:border-[20px]  ${
                 houseSelection === "rock"
                   ? "border-[#DC2E4E] shadow-[0px_6px_0px_0px_rgba(184,33,60,1)] md:shadow-[0px_10px_0px_0px_rgba(184,33,60,1)]"
                   : houseSelection === "paper"
