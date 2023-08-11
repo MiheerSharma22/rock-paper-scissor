@@ -1,6 +1,6 @@
 # Overview
 
-A frontend challenge from <a href="https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH/hub">frontendmentor.io, made using react for self practice.
+A frontend challenge from <a href="https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH/hub">frontendmentor.io</a>, made using react for self practice.
 
 ## Technologies Used
 
