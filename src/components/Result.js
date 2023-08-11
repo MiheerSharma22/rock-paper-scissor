@@ -13,8 +13,11 @@ const Result = ({ selected, score, setScore }) => {
 
   // randomly generating a string from 'rock' , 'paper' and 'scissor'
   function randomSelection() {
-    let random = selections[Math.floor(Math.random() * 3)];
-    setHouseSelection(random);
+    setTimeout(() => {
+      let random = selections[Math.floor(Math.random() * 3)];
+      console.log("random: ", random);
+      setHouseSelection(random);
+    }, 2000);
   }
 
   // finding the winner
@@ -71,55 +74,72 @@ const Result = ({ selected, score, setScore }) => {
       </div>
 
       {/* Displaying the winner */}
-      <div className="flex flex-col justify-center gap-5 md:my-0 my-[1.5rem]">
-        {win === "won" ? (
-          <span className="text-3xl md:text-5xl font-bold text-white uppercase text-center">
-            You won
-          </span>
-        ) : null || win === "lost" ? (
-          <span className="text-3xl md:text-5xl font-bold text-white uppercase text-center">
-            You lose
-          </span>
-        ) : null || win === "tie" ? (
-          <span className="text-3xl md:text-5xl font-bold text-white uppercase text-center">
-            Tie
-          </span>
-        ) : null}
-        <button
-          className="py-[0.2rem] md:py-[0.3rem] px-[0.75rem] md:px-[1.5rem] rounded-md bg-headerOutline font-medium text-lg text-white"
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          Play Again
-        </button>
-      </div>
+      {houseSelection !== "" &&
+        setTimeout(() => {
+          <div className="flex flex-col justify-center gap-5 md:my-0 my-[1.5rem]">
+            {win === "won" ? (
+              <span className="text-3xl md:text-5xl font-bold text-white uppercase text-center">
+                You won
+              </span>
+            ) : null || win === "lost" ? (
+              <span className="text-3xl md:text-5xl font-bold text-white uppercase text-center">
+                You lose
+              </span>
+            ) : null || win === "tie" ? (
+              <span className="text-3xl md:text-5xl font-bold text-white uppercase text-center">
+                Tie
+              </span>
+            ) : null}
+            <button
+              className="py-[0.2rem] md:py-[0.3rem] px-[0.75rem] md:px-[1.5rem] rounded-md bg-headerOutline font-medium text-lg text-white"
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Play Again
+            </button>
+          </div>;
+        }, 1000)}
 
       {/* computer selected option */}
-      <div className="flex flex-col justify-center items-center gap-5">
+      <div
+        className={`flex flex-col  items-center ${
+          houseSelection === "" ? "gap-10" : "gap-5"
+        }`}
+      >
         <p className="text-white tracking-wider text-xl">House Picked</p>
-        <div
-          className={`rock-button bg-white rounded-full w-[100px] md:w-[180px] aspect-square  grid place-items-center border-[12px] md:border-[20px]  ${
-            houseSelection === "rock"
-              ? "border-red-500 shadow-[0px_7px_0px_0px_rgba(181,51,51,1)] md:shadow-[0px_10px_0px_0px_rgba(181,51,51,1)]"
-              : houseSelection === "paper"
-              ? "border-blue-500 shadow-[0px_7px_0px_0px_rgba(16,81,133,1)] md:shadow-[0px_10px_0px_0px_rgba(16,81,133,1)]"
-              : "border-yellow-400 shadow-[0px_7px_0px_0px_rgba(194,140,23,1)] md:shadow-[0px_10px_0px_0px_rgba(194,140,23,1)]"
-          }`}
-        >
-          <img
-            src={
-              houseSelection === "rock"
-                ? rock
-                : houseSelection === "paper"
-                ? paper
-                : scissor
-            }
-            draggable="false"
-            className="w-[40px] md:w-[80px]"
-            alt="random-selection"
-          />
-        </div>
+        {
+          // if houseSelection is not blank then show its selection else show a black placeholder
+          houseSelection !== "" ? (
+            <div
+              className={`rock-button bg-white rounded-full w-[100px] md:w-[180px] aspect-square  grid place-items-center border-[12px] md:border-[20px]  ${
+                houseSelection === "rock"
+                  ? "border-red-500 shadow-[0px_7px_0px_0px_rgba(181,51,51,1)] md:shadow-[0px_10px_0px_0px_rgba(181,51,51,1)]"
+                  : houseSelection === "paper"
+                  ? "border-blue-500 shadow-[0px_7px_0px_0px_rgba(16,81,133,1)] md:shadow-[0px_10px_0px_0px_rgba(16,81,133,1)]"
+                  : "border-yellow-400 shadow-[0px_7px_0px_0px_rgba(194,140,23,1)] md:shadow-[0px_10px_0px_0px_rgba(194,140,23,1)]"
+              }`}
+            >
+              <img
+                src={
+                  houseSelection === "rock"
+                    ? rock
+                    : houseSelection === "paper"
+                    ? paper
+                    : scissor
+                }
+                draggable="false"
+                className="w-[40px] md:w-[80px]"
+                alt="random-selection"
+              />
+            </div>
+          ) : (
+            // showing black placeholder to show a little delay in random house  selection
+            <div
+              className={` bg-[#00000045] rounded-full w-[50px] md:w-[90px] aspect-square  `}
+            ></div>
+          )
+        }
       </div>
     </div>
   );
