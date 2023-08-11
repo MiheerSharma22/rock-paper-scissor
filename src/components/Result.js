@@ -3,19 +3,19 @@ import rock from "../images/icon-rock.svg";
 import paper from "../images/icon-paper.svg";
 import scissor from "../images/icon-scissors.svg";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Result = ({ selected, score, setScore }) => {
   const navigate = useNavigate();
   let [houseSelection, setHouseSelection] = useState("");
   const [win, SetWin] = useState("");
   const selections = ["rock", "paper", "scissor"];
+  const [showPlayAgain, setShowPlayAgain] = useState(false);
 
   // randomly generating a string from 'rock' , 'paper' and 'scissor'
   function randomSelection() {
     setTimeout(() => {
       let random = selections[Math.floor(Math.random() * 3)];
-      console.log("random: ", random);
       setHouseSelection(random);
     }, 2000);
   }
@@ -45,7 +45,7 @@ const Result = ({ selected, score, setScore }) => {
   }, [houseSelection]);
 
   return (
-    <div className="min-w-[50%] flex flex-col md:flex-row justify-between mt-[2.5rem] md:mt-[7rem] gap-[1.2rem]">
+    <div className="min-w-[50%] flex flex-row justify-around mt-[2.5rem] md:mt-[7rem] gap-[1.2rem]">
       {/* user selected option */}
       <div className="flex flex-col justify-center items-center gap-5">
         <p className="text-white tracking-wider text-xl">You Picked</p>
@@ -74,9 +74,11 @@ const Result = ({ selected, score, setScore }) => {
       </div>
 
       {/* Displaying the winner */}
+      {/* checking if houseSelection is not empty then after a delay of 0.5 seconds showing play Again button */}
       {houseSelection !== "" &&
-        setTimeout(() => {
-          <div className="flex flex-col justify-center gap-5 md:my-0 my-[1.5rem]">
+        setTimeout(() => setShowPlayAgain(true), 500) &&
+        showPlayAgain && (
+          <div className="flex flex-col justify-center items-center gap-5 md:my-0 my-[1.5rem]">
             {win === "won" ? (
               <span className="text-3xl md:text-5xl font-bold text-white uppercase text-center">
                 You won
@@ -90,16 +92,13 @@ const Result = ({ selected, score, setScore }) => {
                 Tie
               </span>
             ) : null}
-            <button
-              className="py-[0.2rem] md:py-[0.3rem] px-[0.75rem] md:px-[1.5rem] rounded-md bg-headerOutline font-medium text-lg text-white"
-              onClick={() => {
-                navigate("/");
-              }}
-            >
-              Play Again
-            </button>
-          </div>;
-        }, 1000)}
+            <Link to={"/"}>
+              <button className="py-[0.2rem] md:py-[0.3rem] px-[0.75rem] md:px-[1.5rem] rounded-md text-headerOutline font-semibold tracking-[0.2em]  text-md  bg-white uppercase hover:text-red-500 transition-all duration-150">
+                Play Again
+              </button>
+            </Link>
+          </div>
+        )}
 
       {/* computer selected option */}
       <div
@@ -136,7 +135,7 @@ const Result = ({ selected, score, setScore }) => {
           ) : (
             // showing black placeholder to show a little delay in random house  selection
             <div
-              className={` bg-[#00000045] rounded-full w-[50px] md:w-[90px] aspect-square  `}
+              className={` bg-[#00000029] rounded-full w-[70px] md:w-[120px] aspect-square  `}
             ></div>
           )
         }
