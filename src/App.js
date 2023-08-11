@@ -13,7 +13,7 @@ function App() {
   const [showRules, setShowRules] = useState(false);
 
   return (
-    <div className="wrapper w-screen h-screen flex flex-col pt-5 md:pt-0 md:justify-center items-center relative">
+    <div className="wrapper w-screen h-screen flex flex-col pt-5 md:pt-10 gap-0 md:gap-[3rem] items-center relative">
       <ScoreCard score={score} />
 
       <Routes>
@@ -28,7 +28,7 @@ function App() {
         />
       </Routes>
 
-      <div className="w-full mt-[7rem] text-center md:text-right md:pr-[3rem]">
+      <div className="w-full absolute bottom-[3rem] mt-[7rem] text-center md:text-right md:pr-[3rem]">
         <button
           className="px-[2rem] py-[0.4rem] rounded-md text-white uppercase font-[500]  tracking-wide border border-white"
           onClick={() => {

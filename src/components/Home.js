@@ -9,15 +9,14 @@ const Home = ({ setSelected }) => {
   const navigate = useNavigate();
 
   const clickHandler = (event) => {
-    // console.log(event.target.name);
     setSelected(event.target.name);
     navigate("/result");
   };
 
   return (
-    <div className="relative w-[250px] h-[220px] mt-[9rem] icons-container">
+    <div className="relative w-[250px] h-[220px] mt-[6rem] icons-container">
       <button
-        className="rock-button bg-white shadow-[0px_7px_0px_0px_rgba(181,51,51,1)] rounded-full w-[110px] aspect-square absolute top-[-2rem] left-[-2rem] grid place-items-center border-[12px] border-red-500"
+        className="rock-button bg-[#fffffff0] shadow-[0px_7px_0px_0px_rgba(184,33,60,1)] rounded-full w-[120px] md:w-[150px] aspect-square absolute top-[-2rem] md:top-[-3.5rem] left-[-2rem] md:left-[-3.5rem] grid place-items-center border-[17px] border-[#DC2E4E]"
         onClick={clickHandler}
         name="rock"
       >
@@ -25,7 +24,7 @@ const Home = ({ setSelected }) => {
       </button>
 
       <button
-        className="rock-button bg-white shadow-[0px_7px_0px_0px_rgba(16,81,133,1)] rounded-full w-[110px] aspect-square absolute top-[-2rem] right-[-2rem] grid place-items-center border-[12px] border-blue-500 "
+        className="rock-button bg-[#fffffff0] shadow-[0px_7px_0px_0px_rgba(28,57,201,1)] rounded-full w-[120px] md:w-[150px] aspect-square absolute top-[-2rem] md:top-[-3.5rem] right-[-2rem] md:right-[-3.5rem] grid place-items-center border-[17px] border-[#4865F4] "
         onClick={clickHandler}
         name="paper"
       >
@@ -33,7 +32,7 @@ const Home = ({ setSelected }) => {
       </button>
 
       <button
-        className="rock-button bg-white shadow-[0px_7px_0px_0px_rgba(194,140,23,1)] rounded-full w-[110px] aspect-square absolute bottom-[-2rem] left-[30%] grid place-items-center border-[12px] border-yellow-400"
+        className="rock-button bg-[#fffffff0] shadow-[0px_7px_0px_0px_rgba(156,107,16,1)] rounded-full w-[120px] md:w-[150px] aspect-square absolute bottom-[-2rem] md:bottom-[-3.5rem] left-[25%] md:left-[20%] grid place-items-center border-[17px] border-[#EC9E0E]"
         onClick={clickHandler}
         name="scissor"
       >
