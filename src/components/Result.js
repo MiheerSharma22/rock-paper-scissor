@@ -37,10 +37,12 @@ const Result = ({ selected, score, setScore }) => {
 
   useEffect(() => {
     randomSelection();
+    //eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     findWinner();
+    //eslint-disable-next-line
   }, [houseSelection]);
 
   return (
