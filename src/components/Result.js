@@ -3,10 +3,9 @@ import rock from "../images/icon-rock.svg";
 import paper from "../images/icon-paper.svg";
 import scissor from "../images/icon-scissors.svg";
 import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Result = ({ selected, score, setScore }) => {
-  const navigate = useNavigate();
   let [houseSelection, setHouseSelection] = useState("");
   const [win, SetWin] = useState("");
   const selections = ["rock", "paper", "scissor"];
