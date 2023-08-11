@@ -13,7 +13,7 @@ function App() {
   const [showRules, setShowRules] = useState(false);
 
   return (
-    <div className="wrapper flex flex-col justify-center items-center relative">
+    <div className="wrapper w-screen h-screen flex flex-col pt-5 md:pt-0 md:justify-center items-center relative">
       <ScoreCard score={score} />
 
       <Routes>
